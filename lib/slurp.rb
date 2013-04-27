@@ -2,7 +2,7 @@ require 'rails'
 require 'active_support/dependencies'
 
 module Slurp
-
+  
   # Range validation for password length
   mattr_accessor :password_length
   @@password_length = 6..128
@@ -32,9 +32,5 @@ module Slurp
   def self.setup
     yield self
   end
-
-  def self.whats_my_name
-    puts "My name is slurp."
-  end
-  
+ 
 end
