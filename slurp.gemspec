@@ -17,7 +17,4 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split("\n")
   s.require_paths = ["lib"]
-
-  s.add_dependency("activesupport" , "~> 3.0.7")
-  s.add_dependency("rails"         , "~> 3.0.7")
 end

@@ -2,7 +2,8 @@ source "http://rubygems.org"
 
 gemspec
 
-gem "rails", "3.0.20"
+gem "activesupport", "~> 3.0.7"
+get "rails", "~> 3.2.1"
 gem "capybara", ">= 0.4.0"
 gem "mysql2"
 
