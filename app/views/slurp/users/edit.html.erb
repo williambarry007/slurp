@@ -1,0 +1,43 @@
+<h1>Edit User</h1>
+
+<table>
+<tr><td>First name: </td><td id='first_name_container'></td></tr>
+<tr><td>Last name:  </td><td id='last_name_container'></td></tr>
+<tr><td>Username:   </td><td id='username_container'></td></tr>
+<tr><td>Email:      </td><td id='email_container'></td></tr>
+<tr><td>Password:   </td><td id='password_container'></td></tr>
+<tr><td>Roles:      </td><td id='roles_container'></td></tr>
+</table>
+<div id='message'></div>
+<p>
+<input type='button' value='Back'         onclick="window.location='/users';" />
+<input type='button' value='Delete User'  onclick="deleteUser();" />
+</p>
+
+<% content_for :js do %>
+<script type="text/javascript">
+$(document).ready(function() {
+  var fields = [
+    { id: 'first_name' , field_type: 'text', value: "<%= @user.first_name %>" },
+    { id: 'last_name'  , field_type: 'text', value: "<%= @user.last_name  %>" },
+    { id: 'username'   , field_type: 'text', value: "<%= @user.username   %>" },
+    { id: 'email'      , field_type: 'text', value: "<%= @user.email      %>" },
+    { id: 'password'   , field_type: 'password' },
+    { 
+      id: 'roles', 
+      field_type: 'select', 
+      value: <%= @roles.collect{|r| r.id}.to_json %>, 
+      text: "<%= @roles.collect{|r| r.name}.join(', ') %>",
+      empty_text: '[No roles]',
+      multiple: true,
+      loading_message: 'Getting roles...',
+      options_url: '/roles/options'
+    }
+  ];
+  var params = {
+    update_url: '/users/<%= @user.id %>'		
+	};
+	$.quickEdit.init(fields, params);
+});
+</script>
+<% end %>
