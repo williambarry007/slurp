@@ -1,5 +1,5 @@
 # Parent of all slurp controllers
-class SlurpController < Slurp.parent_controller.constantize
+class Slurp::SlurpController < Slurp.parent_controller.constantize
   protect_from_forgery  
   before_filter :set_logged_in_user
   
