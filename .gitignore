@@ -8,3 +8,5 @@ rdoc/*
 pkg
 log
 test/tmp/*
+*.gem
+.DS_Store
